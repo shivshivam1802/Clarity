@@ -1,0 +1,517 @@
+{
+  "Clarity Contract Template": {
+    "prefix": "contract",
+    "body": [
+      ";; ${1:Contract description}",
+      "",
+      ";; Define constants",
+      "(define-constant CONTRACT-OWNER tx-sender)",
+      "",
+      ";; Define data variables",
+      "(define-data-var ${2:variable-name} ${3:type} ${4:initial-value})",
+      "",
+      ";; Define maps",
+      "(define-map ${5:map-name} ${6:key-type} ${7:value-type})",
+      "",
+      ";; Define public functions",
+      "(define-public (${8:function-name} (${9:param1} ${10:param-type}))",
+      "  (begin",
+      "    ${11:; function body}",
+      "    (ok ${12:return-value})",
+      "  )",
+      ")",
+      "",
+      ";; Define read-only functions",
+      "(define-read-only (${13:read-function-name} (${14:param} ${15:param-type}))",
+      "  ${16:; read-only function body}",
+      ")"
+    ],
+    "description": "Complete Clarity contract template"
+  },
+  "Define Public Function": {
+    "prefix": "defpub",
+    "body": [
+      "(define-public (${1:function-name} (${2:param1} ${3:param-type}))",
+      "  (begin",
+      "    ${4:; function body}",
+      "    (ok ${5:return-value})",
+      "  )",
+      ")"
+    ],
+    "description": "Define a public function"
+  },
+  "Define Private Function": {
+    "prefix": "defpriv",
+    "body": [
+      "(define-private (${1:function-name} (${2:param1} ${3:param-type}))",
+      "  ${4:; function body}",
+      ")"
+    ],
+    "description": "Define a private function"
+  },
+  "Define Read-Only Function": {
+    "prefix": "defread",
+    "body": [
+      "(define-read-only (${1:function-name} (${2:param1} ${3:param-type}))",
+      "  ${4:; read-only function body}",
+      ")"
+    ],
+    "description": "Define a read-only function"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "(if ${1:condition}",
+      "  ${2:then-expression}",
+      "  ${3:else-expression}",
+      ")"
+    ],
+    "description": "If conditional expression"
+  },
+  "When Statement": {
+    "prefix": "when",
+    "body": [
+      "(when ${1:condition}",
+      "  ${2:then-expression}",
+      ")"
+    ],
+    "description": "When conditional expression"
+  },
+  "Match Statement": {
+    "prefix": "match",
+    "body": [
+      "(match ${1:value}",
+      "  ${2:pattern1} ${3:expression1}",
+      "  ${4:pattern2} ${5:expression2}",
+      ")"
+    ],
+    "description": "Pattern matching"
+  },
+  "Define Data Variable": {
+    "prefix": "defvar",
+    "body": [
+      "(define-data-var ${1:variable-name} ${2:type} ${3:initial-value})"
+    ],
+    "description": "Define a data variable"
+  },
+  "Define Map": {
+    "prefix": "defmap",
+    "body": [
+      "(define-map ${1:map-name} ${2:key-type} ${3:value-type})"
+    ],
+    "description": "Define a map"
+  },
+  "Define Constant": {
+    "prefix": "defconst",
+    "body": [
+      "(define-constant ${1:CONSTANT-NAME} ${2:value})"
+    ],
+    "description": "Define a constant"
+  },
+  "Define Contract Owner": {
+    "prefix": "contract-owner",
+    "body": [
+      "(define-constant contract-owner tx-sender)"
+    ],
+    "description": "Define contract owner constant"
+  },
+  "Define Error Code": {
+    "prefix": "err-code",
+    "body": [
+      "(define-constant err-${1:error-name} (err u${2:100}))"
+    ],
+    "description": "Define an error code constant"
+  },
+  "Define Success Code": {
+    "prefix": "ok-code",
+    "body": [
+      "(define-constant ok-${1:success-name} (ok ${2:value}))"
+    ],
+    "description": "Define a success code constant"
+  },
+  "Define Trait": {
+    "prefix": "deftrait",
+    "body": [
+      "(define-trait ${1:trait-name}",
+      "  (${2:function-name} (${3:param1} ${4:param-type}) ${5:return-type})",
+      ")"
+    ],
+    "description": "Define a trait"
+  },
+  "Define Fungible Token": {
+    "prefix": "defft",
+    "body": [
+      "(define-fungible-token ${1:token-name})"
+    ],
+    "description": "Define a fungible token"
+  },
+  "Define Non-Fungible Token": {
+    "prefix": "defnft",
+    "body": [
+      "(define-non-fungible-token ${1:token-name})"
+    ],
+    "description": "Define a non-fungible token"
+  },
+  "Begin Block": {
+    "prefix": "begin",
+    "body": [
+      "(begin",
+      "  ${1:; expressions}",
+      ")"
+    ],
+    "description": "Begin block for multiple expressions"
+  },
+  "Let Statement": {
+    "prefix": "let",
+    "body": [
+      "(let ((${1:variable} ${2:value}))",
+      "  ${3:; body}",
+      ")"
+    ],
+    "description": "Let binding"
+  },
+  "Try Retry": {
+    "prefix": "try",
+    "body": [
+      "(try! ${1:expression})"
+    ],
+    "description": "Try retry expression"
+  },
+  "Assert": {
+    "prefix": "assert",
+    "body": [
+      "(asserts! ${1:condition} ${2:error-code})"
+    ],
+    "description": "Assert condition"
+  },
+  "Merge Tuples": {
+    "prefix": "merge",
+    "body": [
+      "(merge ${1:tuple1} ${2:tuple2})"
+    ],
+    "description": "Merge two tuples, second overwrites first"
+  },
+  "Get Tuple Field": {
+    "prefix": "get",
+    "body": [
+      "(get ${1:field-name} ${2:tuple})"
+    ],
+    "description": "Get field value from tuple"
+  },
+  "Check Equality": {
+    "prefix": "is-eq",
+    "body": [
+      "(is-eq ${1:value1} ${2:value2})"
+    ],
+    "description": "Check if two values are equal"
+  },
+  "Tuple Map": {
+    "prefix": "tuple-map",
+    "body": [
+      "(define-map ${1:map-name}",
+      "  {${2:key-field}: ${3:key-type}}",
+      "  {${4:field1}: ${5:type1}, ${6:field2}: ${7:type2}}",
+      ")"
+    ],
+    "description": "Define map with tuple key and value"
+  },
+  "Error Constants": {
+    "prefix": "err-constants",
+    "body": [
+      ";; Error constants",
+      "(define-constant err-${1:error-name} (err u${2:100}))",
+      "(define-constant err-${3:error-name-2} (err u${4:101}))"
+    ],
+    "description": "Define error constants"
+  },
+  "Update Tuple Field": {
+    "prefix": "update-tuple",
+    "body": [
+      "(let ((item (unwrap! (map-get? ${1:map-name} ${2:key}) ${3:error-code})))",
+      "  (map-set ${1:map-name} ${2:key} (merge item {${4:field}: ${5:new-value}}))",
+      ")"
+    ],
+    "description": "Update a field in a tuple stored in a map"
+  },
+  "Complete Listing Example": {
+    "prefix": "listing-example",
+    "body": [
+      ";; Error constants",
+      "(define-constant err-unknown-listing (err u100))",
+      "(define-constant err-not-the-maker (err u101))",
+      "",
+      ";; Define listings map",
+      "(define-map listings",
+      "  {id: uint}",
+      "  {name: (string-ascii 50), maker: principal}",
+      ")",
+      "",
+      ";; Get listing function",
+      "(define-read-only (get-listing (id uint))",
+      "  (map-get? listings {id: id})",
+      ")",
+      "",
+      ";; Update name function",
+      "(define-public (update-name (id uint) (new-name (string-ascii 50)))",
+      "  (let",
+      "    (",
+      "      (listing (unwrap! (get-listing id) err-unknown-listing))",
+      "    )",
+      "    (asserts! (is-eq tx-sender (get maker listing)) err-not-the-maker)",
+      "    (map-set listings {id: id} (merge listing {name: new-name}))",
+      "    (ok true)",
+      "  )",
+      ")"
+    ],
+    "description": "Complete listing management example"
+  },
+  "STX Transfer": {
+    "prefix": "stx-transfer",
+    "body": [
+      "(stx-transfer? ${1:amount} ${2:sender} ${3:recipient})"
+    ],
+    "description": "Transfer STX tokens"
+  },
+  "STX Transfer with Try": {
+    "prefix": "stx-transfer-try",
+    "body": [
+      "(try! (stx-transfer? ${1:amount} ${2:sender} ${3:recipient}))"
+    ],
+    "description": "Transfer STX tokens with try! for response checking"
+  },
+  "Deposit Contract": {
+    "prefix": "deposit-contract",
+    "body": [
+      "(define-map deposits principal uint)",
+      "",
+      "(define-read-only (get-total-deposit (who principal))",
+      "  (default-to u0 (map-get? deposits who))",
+      ")",
+      "",
+      "(define-public (deposit (amount uint))",
+      "  (begin",
+      "    (map-set deposits tx-sender (+ (get-total-deposit tx-sender) amount))",
+      "    (stx-transfer? amount tx-sender (as-contract tx-sender))",
+      "  )",
+      ")"
+    ],
+    "description": "Complete deposit contract example"
+  },
+  "Response Checking Pattern": {
+    "prefix": "response-check",
+    "body": [
+      "(begin",
+      "  ${1:; other operations}",
+      "  (try! ${2:response-returning-function})",
+      "  (ok ${3:success-value})",
+      ")"
+    ],
+    "description": "Pattern for checking intermediary responses"
+  },
+  "Default To": {
+    "prefix": "default-to",
+    "body": [
+      "(default-to ${1:default-value} ${2:optional-value})"
+    ],
+    "description": "Get value from optional or return default"
+  },
+  "Expects": {
+    "prefix": "expects",
+    "body": [
+      "(expects! ${1:optional-value} ${2:error-code})"
+    ],
+    "description": "Expect optional to have value or return error"
+  },
+  "Expects Error": {
+    "prefix": "expects-err",
+    "body": [
+      "(expects-err! ${1:response-value} ${2:error-code})"
+    ],
+    "description": "Expect response to be error or return error"
+  },
+  "As Contract": {
+    "prefix": "as-contract",
+    "body": [
+      "(as-contract ${1:expression})"
+    ],
+    "description": "Execute expression as contract"
+  },
+  "Get STX Balance": {
+    "prefix": "stx-balance",
+    "body": [
+      "(stx-get-balance ${1:account})"
+    ],
+    "description": "Get STX balance of account"
+  },
+  "Multi-Contract Call": {
+    "prefix": "multi-contract",
+    "body": [
+      "(define-public (call-external-contract (contract-address principal) (function-name string))",
+      "  (let ((result (contract-call? contract-address function-name)))",
+      "    (if (is-ok result)",
+      "      (ok (unwrap-err-panic result))",
+      "      (err u500)  ; External contract failed",
+      "    )",
+      "  )",
+      ")"
+    ],
+    "description": "Pattern for calling external contracts"
+  },
+  "Comment": {
+    "prefix": "comment",
+    "body": [
+      ";; ${1:comment text}"
+    ],
+    "description": "Add a comment"
+  },
+  "Print Debug": {
+    "prefix": "print",
+    "body": [
+      "(print ${1:value})"
+    ],
+    "description": "Print value for debugging"
+  },
+  "Try Unwrap": {
+    "prefix": "try",
+    "body": [
+      "(try! ${1:optional-or-response})"
+    ],
+    "description": "Try to unwrap optional or response (exits on none/err)"
+  },
+  "Unwrap Optional": {
+    "prefix": "unwrap",
+    "body": [
+      "(unwrap! ${1:optional-value} ${2:error-value})"
+    ],
+    "description": "Unwrap optional value with error handling"
+  },
+  "Unwrap Panic": {
+    "prefix": "unwrap-panic",
+    "body": [
+      "(unwrap-panic ${1:optional-value})"
+    ],
+    "description": "Unwrap optional value or panic"
+  },
+  "Unwrap Error": {
+    "prefix": "unwrap-err",
+    "body": [
+      "(unwrap-err! ${1:response-value} ${2:error-value})"
+    ],
+    "description": "Unwrap response value with error handling"
+  },
+  "Unwrap Error Panic": {
+    "prefix": "unwrap-err-panic",
+    "body": [
+      "(unwrap-err-panic ${1:response-value})"
+    ],
+    "description": "Unwrap response value or panic"
+  },
+  "Try Example": {
+    "prefix": "try-example",
+    "body": [
+      "(define-public (try-example (input (response uint uint)))",
+      "  (begin",
+      "    (try! input)",
+      "    (ok \"end of the function\")",
+      "  )",
+      ")",
+      "",
+      "(print (try-example (ok u1)))",
+      "(print (try-example (err u2)))"
+    ],
+    "description": "Complete try! function example"
+  },
+  "Check Response": {
+    "prefix": "check-response",
+    "body": [
+      "(if (is-ok ${1:response})",
+      "  ${2:; handle success}",
+      "  ${3:; handle error}",
+      ")"
+    ],
+    "description": "Check if response is ok or error"
+  },
+  "Map Get": {
+    "prefix": "map-get",
+    "body": [
+      "(map-get? ${1:map-name} ${2:key})"
+    ],
+    "description": "Get value from map"
+  },
+  "Map Set": {
+    "prefix": "map-set",
+    "body": [
+      "(map-set ${1:map-name} ${2:key} ${3:value})"
+    ],
+    "description": "Set value in map (overwrites existing)"
+  },
+  "Map Insert": {
+    "prefix": "map-insert",
+    "body": [
+      "(map-insert ${1:map-name} ${2:key} ${3:value})"
+    ],
+    "description": "Insert value in map (fails if key exists)"
+  },
+  "Map Delete": {
+    "prefix": "map-delete",
+    "body": [
+      "(map-delete ${1:map-name} ${2:key})"
+    ],
+    "description": "Delete key from map"
+  },
+  "Map Insert Panic": {
+    "prefix": "map-insert!",
+    "body": [
+      "(map-insert! ${1:map-name} ${2:key} ${3:value})"
+    ],
+    "description": "Insert value in map (panics if key exists)"
+  },
+  "Map Set Panic": {
+    "prefix": "map-set!",
+    "body": [
+      "(map-set! ${1:map-name} ${2:key} ${3:value})"
+    ],
+    "description": "Set value in map (panics if key does not exist)"
+  },
+  "Map with Tuple": {
+    "prefix": "map-tuple",
+    "body": [
+      "(define-map ${1:map-name} ${2:key-type} {${3:field1}: ${4:type1}, ${5:field2}: ${6:type2}})"
+    ],
+    "description": "Define map with tuple value type"
+  },
+  "Map Operations Example": {
+    "prefix": "map-example",
+    "body": [
+      ";; Define a map",
+      "(define-map ${1:scores} principal uint)",
+      "",
+      ";; Insert a value (fails if key exists)",
+      "(map-insert ${1:scores} tx-sender u100)",
+      "",
+      ";; Set a value (overwrites existing)",
+      "(map-set ${1:scores} tx-sender u200)",
+      "",
+      ";; Get a value",
+      "(print (map-get? ${1:scores} tx-sender))",
+      "",
+      ";; Delete a value",
+      "(map-delete ${1:scores} tx-sender)"
+    ],
+    "description": "Complete map operations example"
+  },
+  "Variable Get": {
+    "prefix": "var-get",
+    "body": [
+      "(var-get ${1:variable-name})"
+    ],
+    "description": "Get variable value"
+  },
+  "Variable Set": {
+    "prefix": "var-set",
+    "body": [
+      "(var-set ${1:variable-name} ${2:value})"
+    ],
+    "description": "Set variable value"
+  }
+}

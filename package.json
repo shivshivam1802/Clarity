@@ -1,0 +1,174 @@
+{
+  "name": "clarity-clean",
+  "displayName": "clarity clean",
+  "description": "Clarity clean helps you write the clean clarity code with visual buttons and maps or the greater clarity.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "clarity-sidebar",
+          "title": "Clarity",
+          "icon": "$(symbol-method)"
+        }
+      ]
+    },
+    "views": {
+      "clarity-sidebar": [
+        {
+          "id": "clarityCommands",
+          "name": "Commands"
+        },
+        {
+          "id": "clarityBlockEditor",
+          "name": "Block Editor"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "clarity.runCheck",
+        "title": "Run Check",
+        "icon": "$(check)"
+      },
+      {
+        "command": "clarity.runTest",
+        "title": "Run Test",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "clarity.generateTemplate",
+        "title": "Generate Template",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "clarity.runConsole",
+        "title": "Run Console",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "clarity.runIntegrate",
+        "title": "Run Integrate",
+        "icon": "$(server)"
+      },
+      {
+        "command": "clarity.runDeploy",
+        "title": "Run Deploy",
+        "icon": "$(rocket)"
+      },
+      {
+        "command": "clarity.generateDeployment",
+        "title": "Generate Deployment",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "clarity.refreshCommands",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "clarity.openBlockEditor",
+        "title": "Open Block Editor",
+        "icon": "$(symbol-method)"
+      },
+      {
+        "command": "clarity.generateCode",
+        "title": "Generate Code",
+        "icon": "$(code)"
+      },
+      {
+        "command": "clarity.clearBlocks",
+        "title": "Clear All Blocks",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "clarity.clearDiagnostics",
+        "title": "Clear Diagnostics",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "clarity.checkDiagnostics",
+        "title": "Check Diagnostics",
+        "icon": "$(check)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "clarity.refreshCommands",
+          "when": "view == clarityCommands",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Clarity",
+      "properties": {
+        "clarity.clarinetPath": {
+          "type": "string",
+          "default": "clarinet",
+          "description": "Path to Clarinet executable"
+        },
+        "clarity.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key for AI-powered test generation"
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "clarity",
+        "aliases": [
+          "clarity",
+          "clarity"
+        ],
+        "extensions": [
+          ".clar"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "clarity",
+        "scopeName": "\\source.clarity",
+        "path": "./syntaxes/clarity.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "clarity",
+        "path": "./snippets/clarity.json"
+      }
+    ]
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.103.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "openai": "^4.20.1",
+    "vscode-languageclient": "^9.0.1"
+  },
+  "extensionDependencies": [
+    "hirosystems.clarity-lsp"  
+  ]
+}
